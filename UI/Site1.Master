@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="UI.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+     <link href="StyleSheet1.css" rel="stylesheet" />
+  
+   <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+         <asp:Table ID="Table1" runat="server">
+            
+            <asp:TableRow> 
+                <asp:TableCell ID ="MainCell" >
+                <a href ="main.aspx">
+                    <h3>העמוד הראשי</h3>
+                </a>
+            </asp:TableCell>
+            <asp:TableCell ID ="logInCell" Visible="true">
+                <a href ="login.aspx">
+                    <h3>כניסה למשתמשים רשומים</h3>
+                </a>
+            </asp:TableCell>
+                <asp:TableCell ID ="SigninCell" Visible="true">
+                <a href ="SignIn.aspx">
+                    <h3>הירשם לאתר</h3>
+                </a>
+            </asp:TableCell>
+                   <asp:TableCell ID ="logOutCell" Visible="false">
+                  <asp:Button ID="logOutButton" runat="server" Text="התנתקות מהמשתמש" OnClick="LogOutButton_Click" />
+                      
+            </asp:TableCell>
+                     <asp:TableCell ID ="UserProfileCell" Visible="false">
+                      <a href ="UserProfile.aspx">
+                    <h3>הפרופיל שלי</h3>
+                 </a>
+            </asp:TableCell>
+                     <asp:TableCell ID ="AddArticleCell" Visible="false">
+                      <a href ="AddArticle.aspx">
+                    <h3>הוספת כתבה חדשה</h3> 
+</a>
+            </asp:TableCell>
+                </asp:TableRow>
+             </asp:Table>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"> </asp:ContentPlaceHolder>
+    </form>
+
+       
+    </body>
+</html>
