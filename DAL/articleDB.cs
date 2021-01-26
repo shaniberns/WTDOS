@@ -11,8 +11,8 @@ namespace DAL
     public class ArticleDB
     {
         public static string PROVIDER = @"Microsoft.ACE.OLEDB.12.0";
-        public static string SOURCE = @"E:\בית ספר\שירותי רשת\ShanisPro\WTDOSSolution\DAL\Database.accdb";
-
+         //public static string SOURCE = @"E:\בית ספר\שירותי רשת\ShanisPro\WTDOSSolution\DAL\Database.accdb";
+       public static string SOURCE = @"..\DAL\Database.accdb";
         public static int AddArticle(string writer, string picture, string article, DateTime publishDate, string visitDate, bool visible, bool family, bool romantic, bool pregnancy, bool disabled, bool nature, string title)
         {
             DBHelper db = new DBHelper(PROVIDER, SOURCE);

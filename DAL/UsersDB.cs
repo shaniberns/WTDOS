@@ -11,7 +11,7 @@ namespace DAL
     public class UsersDB
     {
         public static string PROVIDER = @"Microsoft.ACE.OLEDB.12.0"; 
-        public static string SOURCE = @"E:\בית ספר\שירותי רשת\ShanisPro\WTDOSSolution\DAL\Database.accdb"; 
+        public static string SOURCE = @"..\DAL\Database.accdb"; 
         public static DataRow LogIn(string userName, string userPass)
 
         {
