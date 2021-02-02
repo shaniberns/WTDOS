@@ -63,23 +63,52 @@ namespace BLL
            
                 return res;
         }
-        public static void UpdatePicture(string picture, int articleId)
-        {
-            ArticleDB.UpdatePicture(picture, articleId);
+        
 
-        }
-
-        public static List<Article> GetArticels()
+        public static List<Article> GetArticles()
         {
-           DataTable dataTable = ArticleDB.GetArticels();
+           DataTable dataTable = ArticleDB.GetArticles();
             List<Article> Article = new List<Article>();
             foreach (DataRow article in dataTable.Rows)
             {
-                Article artcl = new Article((int)article["ArticleID"]);
+                Article artcl = new Article(article);
                 Article.Add(artcl);
             }
 
             return Article;
+        }
+
+        public static List<Article> ArticlesFilter(List<Article> lst, string search, bool family, bool romantic, bool pregnancy, bool disabled, bool nature)
+        {
+            List<Article> Articles = new List<Article>();    
+            
+            foreach(Article a in lst)
+            {
+                bool found = false;
+
+                if (search != "")
+                {
+                    found = a.Title.Contains(search);
+                }
+
+                if (family)
+                {
+                    found = a.Family;
+                }
+
+                ////////
+                
+                if (found)
+                {
+                    Articles.Add(a);
+                }
+
+             }
+
+            return Articles;
+
+
+
         }
     }
 }

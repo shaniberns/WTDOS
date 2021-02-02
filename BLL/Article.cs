@@ -23,6 +23,7 @@ namespace BLL
         private bool disabled;
         private bool nature;
         private string title;
+        private int articleId;
 
         public Article(int articleID)
         {
@@ -39,6 +40,23 @@ namespace BLL
             this.disabled = (bool)row["Disabled"];
             this.nature = (bool)row["nature"];
             this.title = (string)row["title"];
+            this.articleId = articleID;
+    }
+        public Article(DataRow row)
+        {
+            this.writer = (string)row["writer"];
+            this.picture = (string)row["Picture"];
+            this.article = (string)row["Article"];
+            this.publishDate = (DateTime)row["PublishDate"];
+            this.visitDate = (string)row["VisitDate"];
+            this.visible = (bool)row["Visible"];
+            this.family = (bool)row["Family"];
+            this.romantic = (bool)row["Romantic"];
+            this.pregnancy = (bool)row["pregnancy"];
+            this.disabled = (bool)row["Disabled"];
+            this.nature = (bool)row["nature"];
+            this.title = (string)row["title"];
+            this.articleId = (int)row["ArticleID"];
         }
         public Article(string writer, string picture, string article, DateTime publishDate, string visitDate, bool visible, bool family, bool romantic, bool pregnancy, bool disabled, bool nature, string title)
         {
@@ -54,6 +72,7 @@ namespace BLL
             this.disabled = disabled;
             this.nature = nature;
             this.title = title;
+           
         }
 
         public string Writer
@@ -93,5 +112,11 @@ namespace BLL
         public bool Disabled { get => disabled; set => disabled = value; }
         public bool Nature { get => nature; set => nature = value; }
         public DateTime PublishDate { get => publishDate; set => publishDate = value; }
+
+        public void UpdatePicture(string picture)
+        {
+            ArticleDB.UpdatePicture(picture, this.articleId);
+
+        }
     }
 }
